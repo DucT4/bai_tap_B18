@@ -1,5 +1,5 @@
 
-var arrThemSo = [];
+var arrThemSo = [2,1,4,3];
 document.getElementById('btnThemSo').onclick = function () {
     //input: themSo: number
     var so = +document.getElementById('nhap_so').value;
@@ -7,7 +7,9 @@ document.getElementById('btnThemSo').onclick = function () {
     document.getElementById('arrThemSo').innerHTML = arrThemSo;
 }
 //Bài 1: tính tổng các số dương trong mảng
-document.getElementById('btnTinhTong').onclick = function () {
+document.getElementById('btnTinhTong').onclick 
+
+= function () {
     var tong = 0;
     for (var index = 0; index < arrThemSo.length; index++) {
         if (arrThemSo[index] >= 0) {
@@ -108,21 +110,18 @@ document.getElementById('btnDoiVT').onclick = function () {
     var change1 = +document.getElementById('change1').value;
     var change2 = +document.getElementById('change2').value;
     //output: doi
-    var doi = [];
+    var arrDoi = [];
     //process
     var viTri1 = '';
     var viTri2 = '';
 
     for (var index = 0; index < arrThemSo.length; index++) {
         if (arrThemSo[index] === change1) {
-            viTri1 = index
+            viTri1 = index;
+            arrThemSo[viTri1] = change2;
         } else if (arrThemSo[index] === change2) {
             viTri2 = index
-        }
-        for (var index = 0; index < arrThemSo.length; index++) {
-            if( )  {
-                viTri1 = arrThemSo{viTri2}
-            }
+            arrThemSo[viTri2] = change1;
         }
         // else if(arrThemSo[index]===change2){
         //     change1 =change2;
@@ -133,7 +132,32 @@ document.getElementById('btnDoiVT').onclick = function () {
         */
     }
     document.getElementById('bai-6').innerHTML = `
-    ${}
+    ${arrThemSo}
+   `;
+}
+// Bài 7: sắp xếp các phần tử trong mảng theo thứ tự tăng dần
+document.getElementById('btnSapXep').onclick = function () {
+    //input: arrThemSo
+    //Output: xapsep các phần tử trong mảng theo thứ tự tăng dần
+    //process
+    /*
+    B1:Duyệt mảng
+    B2:so sánh các giá trị với nhau
+    */
+    // var viTri1 = '';
+    // var viTri2 = '';
+
+    // for (var index = 1; index < arrThemSo.length; index++) {
+    //     if (arrThemSo[index] < arrThemSo[(index - 1)]) {
+    //         viTri1 = index;
+    //         viTri2 = (index - 1);
+    //         arrThemSo[viTri2] = arrThemSo[(index)]
+    //         // arrThemSo[viTri2]= arrThemSo[index];
+    //     } 
+    // }
+    arrThemSo.sort();
+    document.getElementById('bai-7').innerHTML = `
+   ${arrThemSo}
    `;
 }
 
