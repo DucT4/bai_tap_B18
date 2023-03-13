@@ -1,5 +1,5 @@
 
-var arrThemSo = [-1, -12, 1, 2, 3, 7];
+var arrThemSo = [];
 document.getElementById('btnThemSo').onclick = function () {
     //input: themSo: number
     var so = +document.getElementById('nhap_so').value;
@@ -35,7 +35,7 @@ document.getElementById('btnMin').onclick = function () {
     //output:min:string;
     var min = arrThemSo[0];
     for (var index = 0; index < arrThemSo.length; index++) {
-        if (min> arrThemSo[index]) {
+        if (min > arrThemSo[index]) {
             min = arrThemSo[index]
         }
     }
@@ -70,7 +70,7 @@ document.getElementById('btnMinDuong').onclick = function () {
             minDuong = arrSoDuong[index]
         }
     }
-    
+
     // for (var index = 0; index < arrThemSo.length; index++) {
     //     if (arrThemSo[0] > arrThemSo[index] && arrThemSo[index] > 0) {
     //         minDuong = arrThemSo[index]
@@ -79,3 +79,69 @@ document.getElementById('btnMinDuong').onclick = function () {
     document.getElementById('bai-4').innerHTML = 'Min+ :' + minDuong;
 
 }
+// Bài 5: Tìm số chẳn cuối cùng
+document.getElementById('btnSoChan').onclick = function () {
+    //input: arrThemSo
+    //output: arrSoChan: string; soChanCuoi: stirng;
+    var arrSoChan = [];
+    var soChanCuoi = '';
+    //process
+    for (var index = 0; index < arrThemSo.length; index++) {
+        //điều kiện tìm số chẳn: number%2===0
+        if (arrThemSo[index] % 2 === 0) {
+            arrSoChan.push(arrThemSo[index]);
+        } else {
+            soChanCuoi = -1
+        }
+    }
+    for (var index = 0; index < arrSoChan.length; index++) {
+        // Để tìm được số chẳn cuối cùng:
+        soChanCuoi = 'giá trị chẳn cuối của mảng là: ' + arrSoChan[arrSoChan.length - 1];
+    }
+    document.getElementById('bai-5').innerHTML = `
+ ${soChanCuoi}
+`;
+}
+//Bài 6: Đổi vị trí 2 giá trị trong mảng
+document.getElementById('btnDoiVT').onclick = function () {
+    //input: arrThemSo, change1:number; change2: nunber
+    var change1 = +document.getElementById('change1').value;
+    var change2 = +document.getElementById('change2').value;
+    //output: doi
+    var doi = [];
+    //process
+    var viTri1 = '';
+    var viTri2 = '';
+
+    for (var index = 0; index < arrThemSo.length; index++) {
+        if (arrThemSo[index] === change1) {
+            viTri1 = index
+        } else if (arrThemSo[index] === change2) {
+            viTri2 = index
+        }
+        for (var index = 0; index < arrThemSo.length; index++) {
+            if( )  {
+                viTri1 = arrThemSo{viTri2}
+            }
+        }
+        // else if(arrThemSo[index]===change2){
+        //     change1 =change2;
+        // }
+        /*
+        tìm ra vị trí của 2 giá trị muốn đổi thông qua duyệt mảng
+        sau đó đổi giá trị index
+        */
+    }
+    document.getElementById('bai-6').innerHTML = `
+    ${}
+   `;
+}
+
+
+
+
+
+
+
+
+
