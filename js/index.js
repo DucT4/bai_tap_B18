@@ -1,5 +1,5 @@
 
-var arrThemSo = [2,1,4,3];
+var arrThemSo = [];
 document.getElementById('btnThemSo').onclick = function () {
     //input: themSo: number
     var so = +document.getElementById('nhap_so').value;
@@ -7,17 +7,17 @@ document.getElementById('btnThemSo').onclick = function () {
     document.getElementById('arrThemSo').innerHTML = arrThemSo;
 }
 //Bài 1: tính tổng các số dương trong mảng
-document.getElementById('btnTinhTong').onclick 
+document.getElementById('btnTinhTong').onclick
 
-= function () {
-    var tong = 0;
-    for (var index = 0; index < arrThemSo.length; index++) {
-        if (arrThemSo[index] >= 0) {
-            tong += arrThemSo[index];
+    = function () {
+        var tong = 0;
+        for (var index = 0; index < arrThemSo.length; index++) {
+            if (arrThemSo[index] >= 0) {
+                tong += arrThemSo[index];
+            }
         }
+        document.getElementById('bai-1').innerHTML = 'Tổng số dương:' + tong;
     }
-    document.getElementById('bai-1').innerHTML = 'Tổng số dương:' + tong;
-}
 //Bài 2: Đếm có bao nhiêu số dương trong mảng
 document.getElementById('btnDem').onclick = function () {
     //input: arrThemSo
@@ -160,12 +160,67 @@ document.getElementById('btnSapXep').onclick = function () {
    ${arrThemSo}
    `;
 }
+//Bài 8: Tìm số nguyên tố đầu tiên trong mảng. Không có thì trả về -1
+document.getElementById('btnSoNt').onclick = function () {
+    //input: arrThemSo
+    //output: in ra số nguyên tố đầu tiên trong mảng
+    //process: kiểm tra số nguyên tố
+    var soNguyenToDauTien = '';
+    kiemTraSoNT = true;
+    for (var index = 0; index < arrThemSo.length; index++) {
+        for (var soHang = 1; soHang < Math.sqrt(arrThemSo[index]); soHang++) {
+            if (arrThemSo[index] === 1) {
+                kiemTraSoNT = false;
+                soNguyenToDauTien = -1;
+            } else if (arrThemSo[index] % soHang !== 0) {
+                soNguyenToDauTien = arrThemSo[index];
+                document.getElementById('bai-8').innerHTML = soNguyenToDauTien;
+                return;
+            } else {
+                soNguyenToDauTien = -1;
+            }
+        }
+    }
+    document.getElementById('bai-8').innerHTML = soNguyenToDauTien;
+}
+//Bài 9: Đếm có bao nhiêu số nguyên trong 1 mảng số thực
+document.querySelector('#btnDemSoNguyen').onclick = function () {
+    //input: arrThemSo
+    //outPut: demSoNguyen:string;     
+    var demSoNguyen = 0;
+    //process:
+    //B1: DUyệt mảng
+    for (var i = 0; i < arrThemSo.length; i++) {
+        if (arrThemSo[i] % 1 === 0) {
+            demSoNguyen++;
+        }
+    }
+    document.querySelector('#bai-9').innerHTML = demSoNguyen;
+}
+//Bài 10: so sánh số lượng âm, dương trong mảng
+document.querySelector('#btnSoSanh').onclick = function () {
+    //input: arrThemSo 
+    //output: soSanh: string; soAm,soDuong:number
+    var soSanh = '';
+    var soAm = 0;
+    var soDuong = 0;
+    //process:
+    for (var index = 0; index < arrThemSo.length; index++) {
+        if (arrThemSo[index] > 0) {
+            soDuong++;
+        } else if (arrThemSo[index] < 0) {
+            soAm++
+        }
 
-
-
-
-
-
-
-
-
+        if (soAm > soDuong) {
+            soSanh = 'Tổng số(-) :' + soAm + ' > ' + 'Tổng số(+) :' + soDuong;
+        } else if (soAm < soDuong) {
+            soSanh = 'Tổng số(-) :' + soAm + ' < ' + 'Tổng số(+) :'  + soDuong;
+        } else if (soAm = soDuong) {
+            soSanh = 'Tổng số(-) :' + soAm + ' = ' + 'Tổng số(+) :' + soDuong;
+        }  else{
+            soSanh = 'Tổng số(-) :' + soAm + ' = ' + 'Tổng số(+) :' + soDuong;
+        }
+        document.querySelector('#bai-10').innerHTML = soSanh;
+    }
+}
