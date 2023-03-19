@@ -1,5 +1,5 @@
 
-var arrThemSo = [];
+var arrThemSo = [-1, 0, 1, 2, 3];
 document.getElementById('btnThemSo').onclick = function () {
     //input: themSo: number
     var so = +document.getElementById('nhap_so').value;
@@ -155,9 +155,9 @@ document.getElementById('btnSapXep').onclick = function () {
     //         // arrThemSo[viTri2]= arrThemSo[index];
     //     } 
     // }
-    arrThemSo.sort();
+ var arrSort = _.sortBy(arrThemSo);
     document.getElementById('bai-7').innerHTML = `
-   ${arrThemSo}
+   ${arrSort}
    `;
 }
 //Bài 8: Tìm số nguyên tố đầu tiên trong mảng. Không có thì trả về -1
@@ -165,23 +165,28 @@ document.getElementById('btnSoNt').onclick = function () {
     //input: arrThemSo
     //output: in ra số nguyên tố đầu tiên trong mảng
     //process: kiểm tra số nguyên tố
-    var soNguyenToDauTien = '';
+    var soNguyenToDauTien = 0;
     kiemTraSoNT = true;
-    for (var index = 0; index < arrThemSo.length; index++) {
-        for (var soHang = 1; soHang < Math.sqrt(arrThemSo[index]); soHang++) {
-            if (arrThemSo[index] === 1) {
+    for (var i = 0; i < arrThemSo.length; i++) {
+        if (arrThemSo[i] === 1 || arrThemSo[i] <= 0) {
+            kiemTraSoNT = false;
+        } else { 
+            kiemTraSoNT = true;
+        }
+        for (var sohang = 2; sohang <= Math.sqrt(arrThemSo[i]); sohang++) {
+            if (arrThemSo[i] % sohang === 0) {
                 kiemTraSoNT = false;
-                soNguyenToDauTien = -1;
-            } else if (arrThemSo[index] % soHang !== 0) {
-                soNguyenToDauTien = arrThemSo[index];
-                document.getElementById('bai-8').innerHTML = soNguyenToDauTien;
-                return;
-            } else {
-                soNguyenToDauTien = -1;
-            }
+            } 
+        }
+        if (kiemTraSoNT) {
+            soNguyenToDauTien =+arrThemSo[i];
+            document.getElementById('bai-8').innerHTML = soNguyenToDauTien;
+            return;
+        } else {
+            soNguyenToDauTien = -1;
+            document.getElementById('bai-8').innerHTML = soNguyenToDauTien;
         }
     }
-    document.getElementById('bai-8').innerHTML = soNguyenToDauTien;
 }
 //Bài 9: Đếm có bao nhiêu số nguyên trong 1 mảng số thực
 document.querySelector('#btnDemSoNguyen').onclick = function () {
@@ -215,10 +220,10 @@ document.querySelector('#btnSoSanh').onclick = function () {
         if (soAm > soDuong) {
             soSanh = 'Tổng số(-) :' + soAm + ' > ' + 'Tổng số(+) :' + soDuong;
         } else if (soAm < soDuong) {
-            soSanh = 'Tổng số(-) :' + soAm + ' < ' + 'Tổng số(+) :'  + soDuong;
+            soSanh = 'Tổng số(-) :' + soAm + ' < ' + 'Tổng số(+) :' + soDuong;
         } else if (soAm = soDuong) {
             soSanh = 'Tổng số(-) :' + soAm + ' = ' + 'Tổng số(+) :' + soDuong;
-        }  else{
+        } else {
             soSanh = 'Tổng số(-) :' + soAm + ' = ' + 'Tổng số(+) :' + soDuong;
         }
         document.querySelector('#bai-10').innerHTML = soSanh;
