@@ -1,5 +1,5 @@
 
-var arrThemSo = [-1, 0, 1, 2, 3];
+var arrThemSo = [];
 document.getElementById('btnThemSo').onclick = function () {
     //input: themSo: number
     var so = +document.getElementById('nhap_so').value;
@@ -168,7 +168,7 @@ document.getElementById('btnSoNt').onclick = function () {
     var soNguyenToDauTien = 0;
     kiemTraSoNT = true;
     for (var i = 0; i < arrThemSo.length; i++) {
-        if (arrThemSo[i] === 1 || arrThemSo[i] <= 0) {
+        if (arrThemSo[i] === 1 || arrThemSo[i] < 2) {
             kiemTraSoNT = false;
         } else { 
             kiemTraSoNT = true;
@@ -196,7 +196,7 @@ document.querySelector('#btnDemSoNguyen').onclick = function () {
     //process:
     //B1: DUyệt mảng
     for (var i = 0; i < arrThemSo.length; i++) {
-        if (arrThemSo[i] % 1 === 0) {
+        if (arrThemSo[i] %1 === 0) {
             demSoNguyen++;
         }
     }
